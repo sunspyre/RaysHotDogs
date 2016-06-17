@@ -32,6 +32,9 @@ namespace RaysHotDogs
 
             HotDogDataService dataService = new HotDogDataService();
             selectedHotDog = dataService.GetHotDogById(1);
+
+            FindViews();
+            BindData();
         }
 
         private void FindViews()
@@ -43,10 +46,16 @@ namespace RaysHotDogs
             shortDescriptionTextView = FindViewById<TextView>(Resource.Id.shortDescriptionTextView);
             descriptionTextView = FindViewById<TextView>(Resource.Id.descriptionTextView);
             amountEditText = FindViewById<EditText>(Resource.Id.amountEditText);
-            
             cancelButton = FindViewById<Button>(Resource.Id.cancelButton);
             orderButton = FindViewById<Button>(Resource.Id.orderButton);
+        }
 
+        private void BindData()
+        {
+            hotDogNameTextView.Text = selectedHotDog.Name;
+            shortDescriptionTextView.Text = selectedHotDog.ShortDescription;
+            descriptionTextView.Text = selectedHotDog.Description;
+            priceTextView.Text = $"Price: {selectedHotDog.Price}";
         }
     }
 }
