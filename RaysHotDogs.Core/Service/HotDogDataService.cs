@@ -31,5 +31,10 @@ namespace RaysHotDogs.Core.Service
 
             };
         }
+
+        public List<HotDog> GetAllHotDogs()
+        {
+            return hotDogRepository.GetAllHotDogs();
+        }
     }
 }

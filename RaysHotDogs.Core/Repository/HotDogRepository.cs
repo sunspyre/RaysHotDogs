@@ -27,7 +27,15 @@ namespace RaysHotDogs.Core.Repository
 
         public List<HotDog> GetAllHotDogs()
         {
-            return null;
+            List<HotDog> list = new List<HotDog>();
+            foreach (HotDogGroup group in hotDogGroups)
+            {
+                foreach (HotDog hotdog in group.HotDogs)
+                {
+                    list.Add(hotdog);
+                }
+            }
+            return list;
         }
 
     }

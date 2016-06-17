@@ -25,7 +25,11 @@ namespace RaysHotDogs
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+            SetContentView(Resource.Layout.HotDogMenuView);
+
+            hotDogListView = FindViewById<ListView>(Resource.Id.hotDogListView);
+
+
         }
     }
 }
