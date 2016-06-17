@@ -16,5 +16,10 @@ namespace RaysHotDogs.Core.Service
         {
             return null;
         }
+
+        public HotDog GetHotDogById(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
