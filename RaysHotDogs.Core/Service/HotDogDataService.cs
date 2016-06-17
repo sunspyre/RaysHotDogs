@@ -19,7 +19,17 @@ namespace RaysHotDogs.Core.Service
 
         public HotDog GetHotDogById(int v)
         {
-            throw new NotImplementedException();
+            return new HotDog
+            {
+                Name = "Big dog",
+                Description = "Big one",
+                ShortDescription = "Big",
+                Available = true,
+                HotDogId = 1,
+                ImagePath = "http://images.wisegeek.com/hot-dog-with-mustard.jpg",
+                Price = 2332
+
+            };
         }
     }
 }

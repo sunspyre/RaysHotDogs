@@ -5,6 +5,7 @@ using Android.Widget;
 using RaysHotDogs.Core;
 using RaysHotDogs.Core.Model;
 using RaysHotDogs.Core.Service;
+using RaysHotDogs.Utility;
 
 namespace RaysHotDogs
 {
@@ -35,6 +36,7 @@ namespace RaysHotDogs
 
             FindViews();
             BindData();
+            HandleEvents();
         }
 
         private void FindViews()
@@ -52,10 +54,33 @@ namespace RaysHotDogs
 
         private void BindData()
         {
+
             hotDogNameTextView.Text = selectedHotDog.Name;
             shortDescriptionTextView.Text = selectedHotDog.ShortDescription;
             descriptionTextView.Text = selectedHotDog.Description;
             priceTextView.Text = $"Price: {selectedHotDog.Price}";
+
+            //hotDogImageView.SetImageBitmap(ImageHelper.GetImageBitmapFromUrl(selectedHotDog.ImagePath));
+        }
+
+        private void HandleEvents()
+        {
+            orderButton.Click += OrderButton_Click;
+            cancelButton.Click += CancelButton_Click;
+        }
+
+        private void CancelButton_Click(object sender, System.EventArgs e)
+        {
+            //TODO
+        }
+
+        private void OrderButton_Click(object sender, System.EventArgs e)
+        {
+            var amount = int.Parse(amountEditText.Text);
+            var dialog = new AlertDialog.Builder(this);
+            dialog.SetTitle("Confirmation");
+            dialog.SetMessage("Added to cart!");
+            dialog.Show();
         }
     }
 }

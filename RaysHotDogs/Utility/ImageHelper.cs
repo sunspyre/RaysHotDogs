@@ -14,7 +14,7 @@ using System.Net;
 
 namespace RaysHotDogs.Utility
 {
-    public class ImageHelper
+    public static class ImageHelper
     {
         public static Bitmap GetImageBitmapFromUrl(string url)
         {
