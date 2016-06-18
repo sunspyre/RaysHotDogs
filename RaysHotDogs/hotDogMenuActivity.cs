@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -25,9 +24,14 @@ namespace RaysHotDogs
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.HotDogMenuView);
+            SetContentView(Resource.Layout.HotDogMenuView); //Reference the layout (.axml)
 
-            hotDogListView = FindViewById<ListView>(Resource.Id.hotDogListView);
+            hotDogListView = FindViewById<ListView>(Resource.Id.hotDogListView); //get reference to control
+
+            hotDogDataService = new HotDogDataService();
+
+            allHotDogs = hotDogDataService.GetAllHotDogs(); //returns list of all available hotdogs
+
 
 
         }
