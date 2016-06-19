@@ -21,19 +21,32 @@ namespace RaysHotDogs.Fragments
         protected HotDogDataService hotDogDataService;
         protected List<HotDog> hotDogs;
 
-        public override void OnCreate(Bundle savedInstanceState)
+        public BaseFragment()
         {
-            base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
+            hotDogDataService = new HotDogDataService();
+            hotDogs = hotDogDataService.GetAllHotDogs();
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        private void HandleEvents()
         {
-            // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
-
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            listView.ItemClick += ListView_ItemClick;
         }
+
+        private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var hotDog = hotDogs[e.Position];
+
+            var intent = new Intent();
+            intent.SetClass(this.Activity, typeof(HotDogDetailActivity));
+            intent.PutExtra("selectedHotDogId", hotDog.HotDogId);
+
+            StartActivityForResult(intent, 100);
+        }
+
+        private void FindViews()
+        {
+            listView = View.FindViewById<ListView>(Resource.Id.hotDogListView);
+        }
+
     }
 }
