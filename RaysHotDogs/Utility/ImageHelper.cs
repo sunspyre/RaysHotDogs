@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Graphics;
 using System.Net;
+using System.IO;
 
 namespace RaysHotDogs.Utility
 {
@@ -23,6 +24,7 @@ namespace RaysHotDogs.Utility
             using (var webClient = new WebClient())
             {
                 var imageBytes = webClient.DownloadData(url);
+
                 if (imageBytes != null && imageBytes.Length > 0)
                 {
                     imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
@@ -30,6 +32,11 @@ namespace RaysHotDogs.Utility
             }
 
             return imageBitmap;
+        }
+
+        public static Bitmap GetImageBitmapFromLocal(string path)
+        {
+            return BitmapFactory.DecodeFile(path); 
         }
     }
 }

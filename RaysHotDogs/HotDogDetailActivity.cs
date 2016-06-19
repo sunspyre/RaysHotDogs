@@ -9,7 +9,8 @@ using RaysHotDogs.Utility;
 
 namespace RaysHotDogs
 {
-    [Activity(Label = "Hot Dog Detail", MainLauncher = true)]
+    //[Activity(Label = "Hot Dog Detail", MainLauncher = true)]
+    [Activity(Label = "Hot Dog Detail")]
     public class HotDogDetailActivity : Activity
     {
         //create fields for the controls here to be available to entire class

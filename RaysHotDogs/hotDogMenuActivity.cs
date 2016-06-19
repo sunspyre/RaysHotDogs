@@ -10,10 +10,11 @@ using Android.Views;
 using Android.Widget;
 using RaysHotDogs.Core;
 using RaysHotDogs.Core.Service;
+using RaysHotDogs.Adapters;
 
 namespace RaysHotDogs
 {
-    [Activity(Label = "hotDogMenuActivity", MainLauncher = true)]
+    [Activity(Label = "HotDogMenuActivity", MainLauncher = true)]
     public class hotDogMenuActivity : Activity
     {
         private ListView hotDogListView;
@@ -32,8 +33,9 @@ namespace RaysHotDogs
 
             allHotDogs = hotDogDataService.GetAllHotDogs(); //returns list of all available hotdogs
 
+            hotDogListView.Adapter = new HotDogListAdaper(this, allHotDogs);
 
-
+            hotDogListView.FastScrollEnabled = true;
         }
     }
 }

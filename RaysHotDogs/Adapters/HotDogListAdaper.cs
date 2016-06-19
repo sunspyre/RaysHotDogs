@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using RaysHotDogs.Core;
+using RaysHotDogs.Utility;
+using Android.Graphics;
 
 namespace RaysHotDogs.Adapters
 {
@@ -48,14 +50,16 @@ namespace RaysHotDogs.Adapters
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var item = _items[position];
-
+            var image = BitmapFactory.DecodeFile(item.ImagePath);
             if (convertView == null)
             {
                 //Inflate generates objects based on the XML
-                convertView = _context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null); //a "baked-in" resource, null ViewGroup
+                //convertView = _context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null); //SimpleListItem1 is a built-in row style
+                convertView = _context.LayoutInflater.Inflate(Android.Resource.Layout.ActivityListItem, null); //A different list tyle
             }
 
-            convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item.Name; //another baked-in resource
+            convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item.Name; //another built-in control style for the text portion of the list item
+            convertView.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(image); //list item icon
 
             return convertView;
         }

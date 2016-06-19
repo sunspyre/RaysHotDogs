@@ -18,10 +18,37 @@ namespace RaysHotDogs.Core.Repository
                     new HotDog
                     {
                         Available = true,
-                        Description = "Meat lovers"
+                        Description = "Meat lovers",
+                        Name = "Meat Lovers",
+                        ImagePath = "1.png"
+                    }
+                }               
+            },
+            new HotDogGroup()
+            {
+                HotDogGroupId = 2, Title = "Regular Dog", ImagePath = "", HotDogs = new List<HotDog>()
+                {
+                    new HotDog
+                    {
+                        Available = true,
+                        Description = "Regular",
+                        Name = "Regular Dog",
+                        ImagePath = "2.png"
                     }
                 }
-
+            },
+            new HotDogGroup()
+            {
+                HotDogGroupId = 3, Title = "Relish Dog", ImagePath = "", HotDogs = new List<HotDog>()
+                {
+                    new HotDog
+                    {
+                        Available = true,
+                        Description = "Relish Dog",
+                        Name = "Relish Dog",
+                        ImagePath = "3.png"
+                    }
+                }
             }
         };
 
