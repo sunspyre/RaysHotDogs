@@ -47,6 +47,9 @@ namespace RaysHotDogs
 			// aapt resource value: 0x7f020000
 			public const int Icon = 2130837504;
 			
+			// aapt resource value: 0x7f020001
+			public const int logo = 2130837505;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -63,11 +66,17 @@ namespace RaysHotDogs
 			// aapt resource value: 0x7f05000c
 			public const int MyButton = 2131034124;
 			
+			// aapt resource value: 0x7f050011
+			public const int aboutButton = 2131034129;
+			
 			// aapt resource value: 0x7f050007
 			public const int amountEditText = 2131034119;
 			
 			// aapt resource value: 0x7f050006
 			public const int cancelButton = 2131034118;
+			
+			// aapt resource value: 0x7f05000e
+			public const int cartButton = 2131034126;
 			
 			// aapt resource value: 0x7f050004
 			public const int descriptionTextView = 2131034116;
@@ -87,8 +96,14 @@ namespace RaysHotDogs
 			// aapt resource value: 0x7f05000a
 			public const int hotDogShortDescriptionTextView = 2131034122;
 			
+			// aapt resource value: 0x7f05000d
+			public const int logoImageView = 2131034125;
+			
 			// aapt resource value: 0x7f050000
 			public const int mainScrollView = 2131034112;
+			
+			// aapt resource value: 0x7f050010
+			public const int mapButton = 2131034128;
 			
 			// aapt resource value: 0x7f050008
 			public const int orderButton = 2131034120;
@@ -98,6 +113,9 @@ namespace RaysHotDogs
 			
 			// aapt resource value: 0x7f050003
 			public const int shortDescriptionTextView = 2131034115;
+			
+			// aapt resource value: 0x7f05000f
+			public const int takePictureButton = 2131034127;
 			
 			static Id()
 			{
@@ -123,6 +141,9 @@ namespace RaysHotDogs
 			
 			// aapt resource value: 0x7f030003
 			public const int Main = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int MainMenu = 2130903044;
 			
 			static Layout()
 			{
