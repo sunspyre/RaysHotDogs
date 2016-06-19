@@ -4,11 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="About info here"
+        android:text="Enter phone #:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
         android:textSize="30dp" />
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <Button
         android:text="Call"
         android:layout_width="match_parent"

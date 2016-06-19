@@ -16,6 +16,7 @@ namespace RaysHotDogs
     public class AboutActivity : Activity
     {
         private Button callButton;
+        private EditText phoneNumber;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,13 +35,14 @@ namespace RaysHotDogs
         private void CallButton_Click(object sender, EventArgs e)
         {
             var intent = new Intent(Intent.ActionCall);
-            intent.SetData(Android.Net.Uri.Parse(""));
+            intent.SetData(Android.Net.Uri.Parse($"tel:+{phoneNumber.Text}"));
             StartActivity(intent);
         }
 
         private void FindViews()
         {
             callButton = FindViewById<Button>(Resource.Id.callButton);
+            phoneNumber = FindViewById<EditText>(Resource.Id.phoneNumber);
         }
     }
 }
