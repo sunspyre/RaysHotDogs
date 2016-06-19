@@ -36,6 +36,18 @@ namespace RaysHotDogs
             hotDogListView.Adapter = new HotDogListAdaper(this, allHotDogs);
 
             hotDogListView.FastScrollEnabled = true;
+
+            hotDogListView.ItemClick += HotDogListView_ItemClick;
+        }
+
+        private void HotDogListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var selectedItem = allHotDogs[e.Position]; //get selected item
+            var intent = new Intent();
+            intent.SetClass(this, typeof(HotDogDetailActivity));
+            intent.PutExtra("selectedHotDogId", selectedItem.HotDogId); //Stores this in the 'Extra" property
+
+            StartActivityForResult(intent, 100); //the number represents the request, which can be used in the called activity
         }
     }
 }

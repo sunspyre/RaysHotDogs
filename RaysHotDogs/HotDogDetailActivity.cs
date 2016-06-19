@@ -1,5 +1,6 @@
 
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using RaysHotDogs.Core;
@@ -33,7 +34,10 @@ namespace RaysHotDogs
             SetContentView(Resource.Layout.HotDogDetailView);
 
             HotDogDataService dataService = new HotDogDataService();
-            selectedHotDog = dataService.GetHotDogById(1);
+
+            var selectedHotDogId = Intent.Extras.GetInt("selectedHotDogId"); //Get Int from the calling activity (HotDogId)
+
+            selectedHotDog = dataService.GetHotDogById(selectedHotDogId); //get HotDog object by Id
 
             FindViews();
             BindData();
@@ -78,10 +82,17 @@ namespace RaysHotDogs
         private void OrderButton_Click(object sender, System.EventArgs e)
         {
             var amount = int.Parse(amountEditText.Text);
-            var dialog = new AlertDialog.Builder(this);
-            dialog.SetTitle("Confirmation");
-            dialog.SetMessage("Added to cart!");
-            dialog.Show();
+            //var dialog = new AlertDialog.Builder(this);
+            //dialog.SetTitle("Confirmation");
+            //dialog.SetMessage("Added to cart!");
+            //dialog.Show();
+            var intent = new Intent();
+            intent.PutExtra("selectedHotDogId", selectedHotDog.HotDogId);
+            intent.PutExtra("amount", amount);
+            SetResult(Result.Ok, intent); //Calls result method from class that called this method
+
+            this.Finish(); //closes out the method and remove from the stack
+
         }
     }
 }
