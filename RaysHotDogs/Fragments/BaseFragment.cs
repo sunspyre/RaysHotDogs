@@ -27,9 +27,14 @@ namespace RaysHotDogs.Fragments
             hotDogs = hotDogDataService.GetAllHotDogs();
         }
 
-        private void HandleEvents()
+        protected void HandleEvents()
         {
             listView.ItemClick += ListView_ItemClick;
+        }
+
+        protected void FindViews()
+        {
+            listView = View.FindViewById<ListView>(Resource.Id.hotDogListView);
         }
 
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -43,10 +48,7 @@ namespace RaysHotDogs.Fragments
             StartActivityForResult(intent, 100);
         }
 
-        private void FindViews()
-        {
-            listView = View.FindViewById<ListView>(Resource.Id.hotDogListView);
-        }
+
 
     }
 }

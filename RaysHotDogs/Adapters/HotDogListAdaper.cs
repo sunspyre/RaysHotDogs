@@ -15,12 +15,12 @@ using Android.Graphics;
 
 namespace RaysHotDogs.Adapters
 {
-    public class HotDogListAdaper : BaseAdapter<HotDog> //BaseAdapter is basically a List<> that can be used with a ListView
+    public class HotDogListAdapter : BaseAdapter<HotDog> //BaseAdapter is basically a List<> that can be used with a ListView
     {
         private List<HotDog> _items;
         private Activity _context;
 
-        public HotDogListAdaper(Activity context, List<HotDog> items) : base()
+        public HotDogListAdapter(Activity context, List<HotDog> items) : base()
         {
             _context = context;
             _items = items;

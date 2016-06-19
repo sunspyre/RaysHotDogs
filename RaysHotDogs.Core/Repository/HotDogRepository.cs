@@ -22,7 +22,8 @@ namespace RaysHotDogs.Core.Repository
                         Description = "Meat lovers",
                         Name = "Meat Lovers",
                         ImagePath = "1.png",
-                        Price = 6
+                        Price = 6,
+                        Favorite = false
                     }
                 }               
             },
@@ -37,7 +38,8 @@ namespace RaysHotDogs.Core.Repository
                         Description = "Regular",
                         Name = "Regular Dog",
                         ImagePath = "2.png",
-                        Price = 3
+                        Price = 3,
+                        Favorite = true
                     }
                 }
             },
@@ -52,11 +54,26 @@ namespace RaysHotDogs.Core.Repository
                         Description = "Relish Dog",
                         Name = "Relish Dog",
                         ImagePath = "3.png",
-                        Price = 4
+                        Price = 4,
+                        Favorite = true
                     }
                 }
             }
         };
+
+        internal List<HotDog> GetFavoriteHotDogs()
+        {
+            List<HotDog> list = new List<HotDog>();
+            foreach (HotDogGroup group in hotDogGroups)
+            {
+                foreach (HotDog hotdog in group.HotDogs)
+                {
+                    if (hotdog.Favorite)
+                        list.Add(hotdog);
+                }
+            }
+            return list;
+        }
 
         public List<HotDog> GetAllHotDogs()
         {
