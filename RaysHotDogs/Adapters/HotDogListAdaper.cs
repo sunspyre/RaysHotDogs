@@ -13,7 +13,7 @@ using RaysHotDogs.Core;
 
 namespace RaysHotDogs.Adapters
 {
-    public class HotDogListAdaper : BaseAdapter<HotDog>
+    public class HotDogListAdaper : BaseAdapter<HotDog> //BaseAdapter is basically a List<> that can be used with a ListView
     {
         private List<HotDog> _items;
         private Activity _context;
@@ -28,7 +28,7 @@ namespace RaysHotDogs.Adapters
         {
             get
             {
-                throw new NotImplementedException();
+                return _items.Count;
             }
         }
 
@@ -36,18 +36,28 @@ namespace RaysHotDogs.Adapters
         {
             get
             {
-                throw new NotImplementedException();
+                return _items[position];
             }
         }
 
         public override long GetItemId(int position)
         {
-            throw new NotImplementedException();
+            return position;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            throw new NotImplementedException();
+            var item = _items[position];
+
+            if (convertView == null)
+            {
+                //Inflate generates objects based on the XML
+                convertView = _context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null); //a "baked-in" resource, null ViewGroup
+            }
+
+            convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item.Name; //another baked-in resource
+
+            return convertView;
         }
     }
 }
