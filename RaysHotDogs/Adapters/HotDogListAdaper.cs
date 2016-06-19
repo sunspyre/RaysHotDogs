@@ -55,11 +55,18 @@ namespace RaysHotDogs.Adapters
             {
                 //Inflate generates objects based on the XML
                 //convertView = _context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null); //SimpleListItem1 is a built-in row style
-                convertView = _context.LayoutInflater.Inflate(Android.Resource.Layout.ActivityListItem, null); //A different list tyle
+                //convertView = _context.LayoutInflater.Inflate(Android.Resource.Layout.ActivityListItem, null); //A different list style
+                convertView = _context.LayoutInflater.Inflate(Resource.Layout.HotDogRowView, null);
+
             }
 
-            convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item.Name; //another built-in control style for the text portion of the list item
-            convertView.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(image); //list item icon
+            //convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item.Name; //another built-in control style for the text portion of the list item
+            //convertView.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(image); //list item icon
+            convertView.FindViewById<TextView>(Resource.Id.hotDogNameTextView).Text = item.Name;
+            convertView.FindViewById<TextView>(Resource.Id.hotDogDescriptionTextView).Text = item.Description;
+            convertView.FindViewById<TextView>(Resource.Id.hotDogShortDescriptionTextView).Text = item.ShortDescription;
+            convertView.FindViewById<TextView>(Resource.Id.hotDogPriceTextView).Text = $"${item.Price}";
+            convertView.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(image);
 
             return convertView;
         }
