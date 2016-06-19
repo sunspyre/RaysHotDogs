@@ -36,6 +36,7 @@ namespace RaysHotDogs
             //hotDogListView.ItemClick += HotDogListView_ItemClick;
             AddTab("Favorites", Resource.Drawable.icon1, new FavoriteHotDogFragment());
             AddTab("Meat Lovers", Resource.Drawable.icon2, new MeatLoversHotDogFragment());
+            AddTab("Veggie Lovers", Resource.Drawable.icon3, new VeggieHotDogFragment());
 
             
         }
