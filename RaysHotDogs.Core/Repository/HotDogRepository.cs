@@ -18,6 +18,7 @@ namespace RaysHotDogs.Core.Repository
                     new HotDog
                     {
                         Available = true,
+                        ShortDescription = "Loaded with extra meat",
                         Description = "Meat lovers",
                         Name = "Meat Lovers",
                         ImagePath = "1.png"
@@ -31,6 +32,7 @@ namespace RaysHotDogs.Core.Repository
                     new HotDog
                     {
                         Available = true,
+                        ShortDescription = "A regular hot dog",
                         Description = "Regular",
                         Name = "Regular Dog",
                         ImagePath = "2.png"
@@ -44,6 +46,7 @@ namespace RaysHotDogs.Core.Repository
                     new HotDog
                     {
                         Available = true,
+                        ShortDescription = "Hot dog with extra relish",
                         Description = "Relish Dog",
                         Name = "Relish Dog",
                         ImagePath = "3.png"

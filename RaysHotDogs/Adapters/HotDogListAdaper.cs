@@ -50,7 +50,7 @@ namespace RaysHotDogs.Adapters
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var item = _items[position];
-            var image = BitmapFactory.DecodeFile(item.ImagePath);
+            var imageBitmap = ImageHelper.GetImageBitmapFromUrl($"http://touchmemory.net/marc/{item.ImagePath}");
             if (convertView == null)
             {
                 //Inflate generates objects based on the XML
@@ -62,11 +62,12 @@ namespace RaysHotDogs.Adapters
 
             //convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item.Name; //another built-in control style for the text portion of the list item
             //convertView.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(image); //list item icon
+
             convertView.FindViewById<TextView>(Resource.Id.hotDogNameTextView).Text = item.Name;
-            convertView.FindViewById<TextView>(Resource.Id.hotDogDescriptionTextView).Text = item.Description;
             convertView.FindViewById<TextView>(Resource.Id.hotDogShortDescriptionTextView).Text = item.ShortDescription;
             convertView.FindViewById<TextView>(Resource.Id.hotDogPriceTextView).Text = $"${item.Price}";
-            convertView.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(image);
+
+            convertView.FindViewById<ImageView>(Resource.Id.hotDogImageView).SetImageBitmap(imageBitmap);
 
             return convertView;
         }
