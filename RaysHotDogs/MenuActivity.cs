@@ -46,6 +46,14 @@ namespace RaysHotDogs
             //Give the order button a click event
             orderButton.Click += OrderButton_Click;
             aboutButton.Click += AboutButton_Click;
+            takePictureButton.Click += TakePictureButton_Click;
+        }
+
+        private void TakePictureButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(TakePictureActivity));
+            StartActivity(intent);
+
         }
 
         private void AboutButton_Click(object sender, EventArgs e)
