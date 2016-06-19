@@ -25,7 +25,7 @@ namespace RaysHotDogs
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.HotDogMenuView); //Sets the view to HotDogMenuView fore this activity
+            SetContentView(Resource.Layout.MainMenu); //Sets the view to Mainmenu.axml for this activity
 
             FindViews();
             HandleEvents();
@@ -45,6 +45,13 @@ namespace RaysHotDogs
         {
             //Give the order button a click event
             orderButton.Click += OrderButton_Click;
+            aboutButton.Click += AboutButton_Click;
+        }
+
+        private void AboutButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(AboutActivity));
+            StartActivity(intent);
         }
 
         private void OrderButton_Click(object sender, EventArgs e)
