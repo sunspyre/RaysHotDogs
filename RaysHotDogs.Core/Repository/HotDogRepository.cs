@@ -11,28 +11,14 @@ namespace RaysHotDogs.Core.Repository
     {
         private static List<HotDogGroup> hotDogGroups = new List<HotDogGroup>()
         {
-            new HotDogGroup()
-            {
-                HotDogGroupId = 2, Title = "Meat Lovers", ImagePath = "", HotDogs = new List<HotDog>()
-                {
-                    new HotDog
-                    {
-                        Available = true,
-                        ShortDescription = "Loaded with extra meat",
-                        Description = "Meat lovers",
-                        Name = "Meat Lovers",
-                        ImagePath = "1.png",
-                        Price = 6,
-                        Favorite = false
-                    }
-                }               
-            },
+
             new HotDogGroup()
             {
                 HotDogGroupId = 1, Title = "Regular Dog", ImagePath = "", HotDogs = new List<HotDog>()
                 {
                     new HotDog
                     {
+                        HotDogId = 2,
                         Available = true,
                         ShortDescription = "A regular hot dog",
                         Description = "Regular",
@@ -49,6 +35,7 @@ namespace RaysHotDogs.Core.Repository
                 {
                     new HotDog
                     {
+                        HotDogId = 3,
                         Available = true,
                         ShortDescription = "Hot dog with extra relish",
                         Description = "Relish Dog",
@@ -59,6 +46,7 @@ namespace RaysHotDogs.Core.Repository
                     },
                     new HotDog
                     {
+                        HotDogId = 4,
                         Available = true,
                         ShortDescription = "Veggie hot dog",
                         Description = "Veggie Dog",
@@ -66,6 +54,23 @@ namespace RaysHotDogs.Core.Repository
                         ImagePath = "3.png",
                         Price = 4,
                         Favorite = true
+                    }
+                }
+            },
+            new HotDogGroup()
+            {
+                HotDogGroupId = 2, Title = "Meat Lovers", ImagePath = "", HotDogs = new List<HotDog>()
+                {
+                    new HotDog
+                    {
+                        HotDogId = 1,
+                        Available = true,
+                        ShortDescription = "Loaded with extra meat",
+                        Description = "Meat lovers",
+                        Name = "Meat Lovers",
+                        ImagePath = "1.png",
+                        Price = 6,
+                        Favorite = false
                     }
                 }
             }

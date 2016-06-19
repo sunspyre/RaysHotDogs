@@ -64,6 +64,7 @@ namespace RaysHotDogs
             intent.PutExtra("selectedHotDogId", selectedItem.HotDogId); //Stores this in the 'Extra" property
 
             StartActivityForResult(intent, 100); //the number represents the request, which can be used in the called activity
+            
         }
 
         private void AddTab(string tabText, int iconResourceId, Fragment view)
