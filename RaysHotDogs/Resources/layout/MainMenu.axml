@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="25px"
+    android:minHeight="25px"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
-        android:src="@drawable/logo"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView1">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/logoImageView" />
-    <Button
-        android:text="Order hot dogs!"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/orderButton" />
-    <Button
-        android:text="View Cart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cartButton" />
-    <Button
-        android:text="Take Picture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/takePictureButton" />
-    <Button
-        android:text="Go to Ray's store"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mapButton" />
-    <Button
-        android:text="About"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/aboutButton" />
-</LinearLayout>
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/logoImageView"
+            android:layout_margin="20dp" />
+        <Button
+            android:text="Order hot dogs!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderButton" />
+        <Button
+            android:text="View Cart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cartButton" />
+        <Button
+            android:text="Take Picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/takePictureButton" />
+        <Button
+            android:text="Go to Ray's store"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mapButton" />
+        <Button
+            android:text="About"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/aboutButton" />
+    </LinearLayout>
+</ScrollView>

@@ -89,7 +89,7 @@ namespace RaysHotDogs
             var intent = new Intent();
             intent.PutExtra("selectedHotDogId", selectedHotDog.HotDogId);
             intent.PutExtra("amount", amount);
-            SetResult(Result.Ok, intent); //Calls result method from class that called this method
+            SetResult(Result.Ok, intent); //Calls OnActivityResult method from class that called this method
 
             this.Finish(); //closes out the method and remove from the stack
 
