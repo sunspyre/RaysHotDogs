@@ -11,6 +11,7 @@ using Android.Widget;
 using RaysHotDogs.Core;
 using RaysHotDogs.Core.Service;
 using RaysHotDogs.Adapters;
+using RaysHotDogs.Fragments;
 
 namespace RaysHotDogs
 {
@@ -24,20 +25,19 @@ namespace RaysHotDogs
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             SetContentView(Resource.Layout.HotDogMenuView); //Reference the layout (.axml)
+            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs; //set this activity to a tab layout
 
-            hotDogListView = FindViewById<ListView>(Resource.Id.hotDogListView); //get reference to control
+            //hotDogListView = FindViewById<ListView>(Resource.Id.hotDogListView); //get reference to control
+            //hotDogDataService = new HotDogDataService();
+            //allHotDogs = hotDogDataService.GetAllHotDogs(); //returns list of all available hotdogs
+            //hotDogListView.Adapter = new HotDogListAdapter(this, allHotDogs);
+            //hotDogListView.FastScrollEnabled = true;
+            //hotDogListView.ItemClick += HotDogListView_ItemClick;
+            AddTab("Favorites", Resource.Drawable.icon1, new FavoriteHotDogFragment());
+            AddTab("Meat Lovers", Resource.Drawable.icon2, new MeatLoversHotDogFragment());
 
-            hotDogDataService = new HotDogDataService();
-
-            allHotDogs = hotDogDataService.GetAllHotDogs(); //returns list of all available hotdogs
-
-            hotDogListView.Adapter = new HotDogListAdaper(this, allHotDogs);
-
-            hotDogListView.FastScrollEnabled = true;
-
-            hotDogListView.ItemClick += HotDogListView_ItemClick;
+            
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
@@ -63,6 +63,30 @@ namespace RaysHotDogs
             intent.PutExtra("selectedHotDogId", selectedItem.HotDogId); //Stores this in the 'Extra" property
 
             StartActivityForResult(intent, 100); //the number represents the request, which can be used in the called activity
+        }
+
+        private void AddTab(string tabText, int iconResourceId, Fragment view)
+        {
+            var tab = this.ActionBar.NewTab();
+            tab.SetText(tabText);
+            tab.SetIcon(iconResourceId);
+
+            tab.TabSelected += delegate (object sender, ActionBar.TabEventArgs e)
+            {
+                var fragment = this.FragmentManager.FindFragmentById(Resource.Id.fragmentContainer);
+                if (fragment != null)
+                {
+                    e.FragmentTransaction.Remove(fragment);
+                }
+                e.FragmentTransaction.Add(Resource.Id.fragmentContainer, view);
+            };
+
+            tab.TabUnselected += delegate (object sender, ActionBar.TabEventArgs e)
+            {
+                e.FragmentTransaction.Remove(view);
+            };
+
+            this.ActionBar.AddTab(tab);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace RaysHotDogs.Core.Repository
         {
             new HotDogGroup()
             {
-                HotDogGroupId = 1, Title = "Meat Lovers", ImagePath = "", HotDogs = new List<HotDog>()
+                HotDogGroupId = 2, Title = "Meat Lovers", ImagePath = "", HotDogs = new List<HotDog>()
                 {
                     new HotDog
                     {
@@ -29,7 +29,7 @@ namespace RaysHotDogs.Core.Repository
             },
             new HotDogGroup()
             {
-                HotDogGroupId = 2, Title = "Regular Dog", ImagePath = "", HotDogs = new List<HotDog>()
+                HotDogGroupId = 1, Title = "Regular Dog", ImagePath = "", HotDogs = new List<HotDog>()
                 {
                     new HotDog
                     {
@@ -56,10 +56,36 @@ namespace RaysHotDogs.Core.Repository
                         ImagePath = "3.png",
                         Price = 4,
                         Favorite = true
+                    },
+                    new HotDog
+                    {
+                        Available = true,
+                        ShortDescription = "Veggie hot dog",
+                        Description = "Veggie Dog",
+                        Name = "Veggie Dog",
+                        ImagePath = "3.png",
+                        Price = 4,
+                        Favorite = true
                     }
                 }
             }
         };
+
+        internal HotDog GetHotDogById(int v)
+        {
+            foreach (HotDogGroup group in hotDogGroups)
+            {
+                foreach (HotDog hotdog in group.HotDogs)
+                {
+                    if (hotdog.HotDogId == v)
+                    {
+                        return hotdog;
+                    }
+                        
+                }
+            }
+            return null;
+        }
 
         internal List<HotDog> GetFavoriteHotDogs()
         {
@@ -88,6 +114,21 @@ namespace RaysHotDogs.Core.Repository
             return list;
         }
 
+        public List<HotDog> GetHotDogGroup(int groupId)
+        {
+            List<HotDog> list = new List<HotDog>();
+            foreach (HotDogGroup group in hotDogGroups)
+            {
+                if (group.HotDogGroupId == groupId)
+                {
+                    foreach (HotDog hotdog in group.HotDogs)
+                    {
+                        list.Add(hotdog);
+                    }
+                }
+            }
+            return list;
+        }
     }
 
 

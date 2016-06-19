@@ -52,6 +52,8 @@
     <Compile Include="AboutActivity.cs" />
     <Compile Include="Adapters\HotDogListAdaper.cs" />
     <Compile Include="Fragments\BaseFragment.cs" />
+    <Compile Include="Fragments\VeggieHotDogFragment.cs" />
+    <Compile Include="Fragments\MeatLoversHotDogFragment.cs" />
     <Compile Include="Fragments\FavoriteHotDogFragment.cs" />
     <Compile Include="HotDogDetailActivity.cs" />
     <Compile Include="hotDogMenuActivity.cs" />
@@ -79,6 +81,15 @@
     <AndroidResource Include="Resources\layout\AboutView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\FavoriteHotDogFragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MeatLoversHotDogFragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\VeggieHotDogFragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -100,6 +111,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

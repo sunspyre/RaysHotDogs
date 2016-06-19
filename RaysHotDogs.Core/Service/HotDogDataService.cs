@@ -12,24 +12,14 @@ namespace RaysHotDogs.Core.Service
     {
         private static HotDogRepository hotDogRepository = new HotDogRepository();
 
-        public List<HotDogGroup> GetGroupedHotDogs()
+        public List<HotDog> GetGroupedHotDogs(int groupId)
         {
-            return null;
+            return hotDogRepository.GetHotDogGroup(groupId);
         }
 
         public HotDog GetHotDogById(int v)
         {
-            return new HotDog
-            {
-                Name = "Big dog",
-                Description = "Big one",
-                ShortDescription = "Big",
-                Available = true,
-                HotDogId = 1,
-                ImagePath = "http://images.wisegeek.com/hot-dog-with-mustard.jpg",
-                Price = 2332
-
-            };
+            return hotDogRepository.GetHotDogById(v);
         }
 
         public List<HotDog> GetFavoriteHotDogs()

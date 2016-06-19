@@ -20,15 +20,21 @@ namespace RaysHotDogs.Utility
         public static Bitmap GetImageBitmapFromUrl(string url)
         {
             Bitmap imageBitmap = null;
-
-            using (var webClient = new WebClient())
+            try
             {
-                var imageBytes = webClient.DownloadData(url);
-
-                if (imageBytes != null && imageBytes.Length > 0)
+                using (var webClient = new WebClient())
                 {
-                    imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                    var imageBytes = webClient.DownloadData(url);
+
+                    if (imageBytes != null && imageBytes.Length > 0)
+                    {
+                        imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
             }
 
             return imageBitmap;
