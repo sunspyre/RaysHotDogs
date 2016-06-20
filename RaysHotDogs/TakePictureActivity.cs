@@ -16,7 +16,7 @@ using RaysHotDogs.Utility;
 
 namespace RaysHotDogs
 {
-    [Activity(Label = "TakePictureActivity")]
+    [Activity]
     public class TakePictureActivity : Activity
     {
         private ImageView rayPictureImageView;

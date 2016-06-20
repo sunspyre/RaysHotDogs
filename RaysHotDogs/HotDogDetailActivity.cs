@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using RaysHotDogs.Core;
 using RaysHotDogs.Core.Model;
@@ -11,7 +12,7 @@ using RaysHotDogs.Utility;
 namespace RaysHotDogs
 {
     //[Activity(Label = "Hot Dog Detail", MainLauncher = true)]
-    [Activity(Label = "Hot Dog Detail")]
+    [Activity]
     public class HotDogDetailActivity : Activity
     {
         //create fields for the controls here to be available to entire class

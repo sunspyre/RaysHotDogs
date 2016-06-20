@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace RaysHotDogs
 {
-    [Activity(Label = "Ray's Hot Dogs", MainLauncher = true)]
+    [Activity(MainLauncher = true)]
     public class MenuActivity : Activity
     {
         private Button orderButton;
@@ -23,6 +23,7 @@ namespace RaysHotDogs
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            
             base.OnCreate(savedInstanceState);
             RequestWindowFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.MainMenu); //Sets the view to Mainmenu.axml for this activity
