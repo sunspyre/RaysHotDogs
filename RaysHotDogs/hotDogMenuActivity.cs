@@ -25,7 +25,7 @@ namespace RaysHotDogs
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            RequestWindowFeature(WindowFeatures.NoTitle);
+            
             SetContentView(Resource.Layout.HotDogMenuView); //Reference the layout (.axml)
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs; //set this activity to a tab layout
 
