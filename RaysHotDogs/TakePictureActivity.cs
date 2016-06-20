@@ -28,7 +28,7 @@ namespace RaysHotDogs
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            RequestWindowFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.TakePictureView);
 
             FindViews();
