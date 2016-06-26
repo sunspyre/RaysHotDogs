@@ -23,7 +23,6 @@ namespace RaysHotDogs
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            
             base.OnCreate(savedInstanceState);
             RequestWindowFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.MainMenu); //Sets the view to Mainmenu.axml for this activity
