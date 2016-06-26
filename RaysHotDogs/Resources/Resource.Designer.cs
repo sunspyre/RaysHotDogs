@@ -93,6 +93,9 @@ namespace RaysHotDogs
 			// aapt resource value: 0x7f050008
 			public const int descriptionTextView = 2131034120;
 			
+			// aapt resource value: 0x7f050017
+			public const int externalMapButton = 2131034135;
+			
 			// aapt resource value: 0x7f05000d
 			public const int fragmentContainer = 2131034125;
 			
@@ -129,8 +132,8 @@ namespace RaysHotDogs
 			// aapt resource value: 0x7f050009
 			public const int priceTextView = 2131034121;
 			
-			// aapt resource value: 0x7f050017
-			public const int rayPictureImageView = 2131034135;
+			// aapt resource value: 0x7f050018
+			public const int rayPictureImageView = 2131034136;
 			
 			// aapt resource value: 0x7f050011
 			public const int scrollView1 = 2131034129;
@@ -182,10 +185,13 @@ namespace RaysHotDogs
 			public const int MeatLoversHotDogFragment = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int TakePictureView = 2130903048;
+			public const int RayMapView = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int VeggieHotDogFragment = 2130903049;
+			public const int TakePictureView = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int VeggieHotDogFragment = 2130903050;
 			
 			static Layout()
 			{
