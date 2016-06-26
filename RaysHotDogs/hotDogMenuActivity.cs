@@ -18,7 +18,7 @@ namespace RaysHotDogs
     [Activity]
     public class hotDogMenuActivity : Activity
     {
-        private ListView hotDogListView;
+        //private ListView hotDogListView;
         private List<HotDog> allHotDogs;
         private HotDogDataService hotDogDataService;
 
@@ -30,8 +30,8 @@ namespace RaysHotDogs
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs; //set this activity to a tab layout
 
             //hotDogListView = FindViewById<ListView>(Resource.Id.hotDogListView); //get reference to control
-            //hotDogDataService = new HotDogDataService();
-            //allHotDogs = hotDogDataService.GetAllHotDogs(); //returns list of all available hotdogs
+            hotDogDataService = new HotDogDataService();
+            allHotDogs = hotDogDataService.GetAllHotDogs(); //returns list of all available hotdogs
             //hotDogListView.Adapter = new HotDogListAdapter(this, allHotDogs);
             //hotDogListView.FastScrollEnabled = true;
             //hotDogListView.ItemClick += HotDogListView_ItemClick;
