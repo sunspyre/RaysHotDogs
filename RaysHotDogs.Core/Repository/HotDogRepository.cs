@@ -1,7 +1,9 @@
-﻿using RaysHotDogs.Core.Model;
+﻿using Newtonsoft.Json;
+using RaysHotDogs.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,72 +11,105 @@ namespace RaysHotDogs.Core.Repository
 {
     public class HotDogRepository
     {
-        private static List<HotDogGroup> hotDogGroups = new List<HotDogGroup>()
-        {
+        #region Hardcoded data
 
-            new HotDogGroup()
+        //{
+
+        //    new HotDogGroup()
+        //    {
+        //        HotDogGroupId = 1, Title = "Regular Dog", ImagePath = "", HotDogs = new List<HotDog>()
+        //        {
+        //            new HotDog
+        //            {
+        //                HotDogId = 2,
+        //                Available = true,
+        //                ShortDescription = "A regular hot dog",
+        //                Description = "Regular",
+        //                Name = "Regular Dog",
+        //                ImagePath = "2.png",
+        //                Price = 3,
+        //                Favorite = true
+        //            }
+        //        }
+        //    },
+        //    new HotDogGroup()
+        //    {
+        //        HotDogGroupId = 3, Title = "Relish Dog", ImagePath = "", HotDogs = new List<HotDog>()
+        //        {
+        //            new HotDog
+        //            {
+        //                HotDogId = 3,
+        //                Available = true,
+        //                ShortDescription = "Hot dog with extra relish",
+        //                Description = "Relish Dog",
+        //                Name = "Relish Dog",
+        //                ImagePath = "3.png",
+        //                Price = 4,
+        //                Favorite = true
+        //            },
+        //            new HotDog
+        //            {
+        //                HotDogId = 4,
+        //                Available = true,
+        //                ShortDescription = "Veggie hot dog",
+        //                Description = "Veggie Dog",
+        //                Name = "Veggie Dog",
+        //                ImagePath = "3.png",
+        //                Price = 4,
+        //                Favorite = true
+        //            }
+        //        }
+        //    },
+        //    new HotDogGroup()
+        //    {
+        //        HotDogGroupId = 2, Title = "Meat Lovers", ImagePath = "", HotDogs = new List<HotDog>()
+        //        {
+        //            new HotDog
+        //            {
+        //                HotDogId = 1,
+        //                Available = true,
+        //                ShortDescription = "Loaded with extra meat",
+        //                Description = "Meat lovers",
+        //                Name = "Meat Lovers",
+        //                ImagePath = "1.png",
+        //                Price = 6,
+        //                Favorite = false
+        //            }
+        //        }
+        //    }
+        //};
+        #endregion
+        private static List<HotDogGroup> hotDogGroups = new List<HotDogGroup>();
+        string url = "http://gillcleerenpluralsight.blob.core.windows.net/files/hotdogs.json";
+
+        public HotDogRepository()
+        {
+            Task.Run(() => this.LoadDataAsync(url)).Wait();
+        }
+
+        private async Task LoadDataAsync(string uri)
+        {
+            if (hotDogGroups != null)
             {
-                HotDogGroupId = 1, Title = "Regular Dog", ImagePath = "", HotDogs = new List<HotDog>()
+                string responseString = null;
+
+                using (var httpClient = new HttpClient())
                 {
-                    new HotDog
+                    try
                     {
-                        HotDogId = 2,
-                        Available = true,
-                        ShortDescription = "A regular hot dog",
-                        Description = "Regular",
-                        Name = "Regular Dog",
-                        ImagePath = "2.png",
-                        Price = 3,
-                        Favorite = true
+                        Task<HttpResponseMessage> getResponse = httpClient.GetAsync(uri);
+                        HttpResponseMessage response = await getResponse;
+                        responseString = await response.Content.ReadAsStringAsync();
+                        hotDogGroups = JsonConvert.DeserializeObject<List<HotDogGroup>>(responseString);
+
                     }
-                }
-            },
-            new HotDogGroup()
-            {
-                HotDogGroupId = 3, Title = "Relish Dog", ImagePath = "", HotDogs = new List<HotDog>()
-                {
-                    new HotDog
+                    catch (Exception)
                     {
-                        HotDogId = 3,
-                        Available = true,
-                        ShortDescription = "Hot dog with extra relish",
-                        Description = "Relish Dog",
-                        Name = "Relish Dog",
-                        ImagePath = "3.png",
-                        Price = 4,
-                        Favorite = true
-                    },
-                    new HotDog
-                    {
-                        HotDogId = 4,
-                        Available = true,
-                        ShortDescription = "Veggie hot dog",
-                        Description = "Veggie Dog",
-                        Name = "Veggie Dog",
-                        ImagePath = "3.png",
-                        Price = 4,
-                        Favorite = true
-                    }
-                }
-            },
-            new HotDogGroup()
-            {
-                HotDogGroupId = 2, Title = "Meat Lovers", ImagePath = "", HotDogs = new List<HotDog>()
-                {
-                    new HotDog
-                    {
-                        HotDogId = 1,
-                        Available = true,
-                        ShortDescription = "Loaded with extra meat",
-                        Description = "Meat lovers",
-                        Name = "Meat Lovers",
-                        ImagePath = "1.png",
-                        Price = 6,
-                        Favorite = false
+
                     }
                 }
             }
-        };
+        }
 
         internal HotDog GetHotDogById(int v)
         {
